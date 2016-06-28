@@ -22,15 +22,12 @@ class I386ElfGcc < Formula
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
 
     mkdir 'build' do
-      system '../configure', '--disable-nls', '--target=i386-elf', '--disable-werror',
+      system '../configure', '--disable-nls', '--target=i386-elf --with-gmp=/usr/local/include --with-mpfr=/usr/local/include --with-mpc=/usr/local/include', '--disable-werror ',
                              "--prefix=/usr/local/Cellar/i386-elf-binutils/2.23 ",
                              "--enable-languages=c",
                              "--without-headers",
                              "CC=/usr/local/Cellar/gcc49/4.9.3/bin/gcc-4.9",
-                             "CXX=/usr/local/Cellar/gcc49/4.9.3/bin/g++-4.9",
-                             "--with-gmp=/usr/local/include",
-                             "--with-mpfr=/usr/local/include",
-                             "--with-mpc=/usr/local/include"
+                             "CXX=/usr/local/Cellar/gcc49/4.9.3/bin/g++-4.9"
       system 'make all-gcc'
       system 'make install-gcc'
       FileUtils.ln_sf binutils.prefix/"i386-elf", prefix/"i386-elf"
