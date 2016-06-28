@@ -15,19 +15,16 @@ class I386ElfGcc < Formula
   def install
     binutils = Formula.factory 'i386-elf-binutils'
 
-    ENV['CC'] = '/usr/local/bin/gcc-4.9'
-    ENV['CXX'] = '/usr/local/bin/g++-4.9'
+    ENV['CC'] = '/usr/local/Cellar/gcc49/4.9.2_1/bin/gcc-4.9'
+    ENV['CXX'] = '/usr/local/Cellar/gcc49/4.9.2_1/bin/g++-4.9'
     ENV['CPP'] = '/usr/local/bin/cpp-4.9'
     ENV['LD'] = '/usr/local/bin/gcc-4.9'
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
-
     mkdir 'build' do
-      system '../configure', '--disable-nls', '--target=i386-elf --with-gmp=/usr/local/include --with-mpfr=/usr/local/include --with-mpc=/usr/local/include', '--disable-werror ',
+      system '../configure', '--disable-nls', '--target=i386-elf','--with-gmp=/usr/local/include','--with-mpfr=/usr/local/include','--with-mpc=/usr/local/include', '--disable-werror ',
                              "--prefix=/usr/local/Cellar/i386-elf-binutils/2.23 ",
                              "--enable-languages=c",
-                             "--without-headers",
-                             "CC=/usr/local/Cellar/gcc49/4.9.3/bin/gcc-4.9",
-                             "CXX=/usr/local/Cellar/gcc49/4.9.3/bin/g++-4.9"
+                             
       system 'make all-gcc'
       system 'make install-gcc'
       FileUtils.ln_sf binutils.prefix/"i386-elf", prefix/"i386-elf"
