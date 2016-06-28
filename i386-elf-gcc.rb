@@ -21,7 +21,7 @@ class I386ElfGcc < Formula
     ENV['LD'] = '/usr/local/bin/gcc-4.9'
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
     mkdir 'build' do
-      system '../configure', '--disable-nls', '--target=i386-elf','--with-gmp=/usr/local/include','--with-mpfr=/usr/local/include','--with-mpc=/usr/local/include', '--disable-werror ',
+      system '../configure', '--disable-nls', '--target=i386-elf','--with-gmp=/usr/local','--with-mpfr=/usr/local','--with-mpc=/usr/local', '--disable-werror ',
                              "--prefix=/usr/local/Cellar/i386-elf-binutils/2.23 ",
                              "--enable-languages=c",
                              
