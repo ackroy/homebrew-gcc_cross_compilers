@@ -15,8 +15,8 @@ class I386ElfGcc < Formula
   def install
     binutils = Formula.factory 'i386-elf-binutils'
 
-    ENV['CC'] = '/usr/local/Cellar/gcc49/4.9.2_1/bin/gcc-4.9'
-    ENV['CXX'] = '/usr/local/Cellar/gcc49/4.9.2_1/bin/g++-4.9'
+    ENV['CC'] = '/usr/local/bin/gcc-4.9'
+    ENV['CXX'] = '/usr/local/bin/g++-4.9'
     ENV['CPP'] = '/usr/local/bin/cpp-4.9'
     ENV['LD'] = '/usr/local/bin/gcc-4.9'
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
