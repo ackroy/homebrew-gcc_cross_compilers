@@ -22,7 +22,7 @@ class I386ElfGcc < Formula
     ENV['PATH'] += ":#{binutils.prefix/"bin"}"
     mkdir 'build' do
       system '../configure', '--disable-nls', '--target=i386-elf','--with-gmp=/usr/local','--with-mpfr=/usr/local','--with-mpc=/usr/local', '--disable-werror ',
-                             "--prefix=/usr/local/Cellar/i386-elf-binutils/2.23 ",
+                             "--prefix=#{prefix}",
                              "--enable-languages=c",
                              
       system 'make all-gcc'
