@@ -23,8 +23,7 @@ class I386ElfGcc < Formula
     mkdir 'build' do
       system '../configure', '--disable-nls', '--target=i386-elf','--with-gmp=/usr/local','--with-mpfr=/usr/local','--with-mpc=/usr/local', '--disable-werror ',
                              "--prefix=#{prefix}",
-                             "--enable-languages=c",
-                             
+                             "--enable-languages=c"
       system 'make all-gcc'
       system 'make install-gcc'
       FileUtils.ln_sf binutils.prefix/"i386-elf", prefix/"i386-elf"
