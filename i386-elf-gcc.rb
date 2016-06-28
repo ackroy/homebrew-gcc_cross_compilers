@@ -23,9 +23,11 @@ class I386ElfGcc < Formula
 
     mkdir 'build' do
       system '../configure', '--disable-nls', '--target=i386-elf', '--disable-werror',
-                             "--prefix=#{prefix}",
+                             "--prefix=/usr/local/Cellar/i386-elf-binutils/2.23 ",
                              "--enable-languages=c",
                              "--without-headers",
+                             "CC=/usr/local/Cellar/gcc49/4.9.3/bin/gcc-4.9",
+                             "CXX=/usr/local/Cellar/gcc49/4.9.3/bin/g++-4.9",
                              "--with-gmp=/usr/local/include",
                              "--with-mpfr=/usr/local/include",
                              "--with-mpc=/usr/local/include"
